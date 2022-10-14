@@ -10,8 +10,8 @@ https://discord.com/api/oauth2/authorize?client_id=1030253428573737041&permissio
 /game-guide
 
 options: 
-		game: required
-		objective: optional
+	game: required
+	objective: optional
 ```
 
 ### API Service
