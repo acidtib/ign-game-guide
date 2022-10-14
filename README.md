@@ -14,5 +14,29 @@ options:
 	objective: optional
 ```
 
+### Search Games
+```
+/game-guide
+
+options: 
+	game: required
+```
+
+### Search Articles
+```
+/game-guide
+
+options: 
+	query: required
+```
+
+### Search Entire Site
+```
+/game-guide
+
+options: 
+	query: required
+```
+
 ### API Service
 https://github.com/acidtib/ign-search-proxy
