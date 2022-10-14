@@ -7,7 +7,7 @@ https://discord.com/api/oauth2/authorize?client_id=1030253428573737041&permissio
 
 ### Search Wiki Guides
 ```
-/game-guide
+/ign-guides
 
 options: 
 	game: required
@@ -16,7 +16,7 @@ options:
 
 ### Search Games
 ```
-/game-guide
+/ign-games
 
 options: 
 	game: required
@@ -24,18 +24,18 @@ options:
 
 ### Search Articles
 ```
-/game-guide
+/ign-articles
 
 options: 
-	query: required
+	search: required
 ```
 
 ### Search Entire Site
 ```
-/game-guide
+/ign-site
 
 options: 
-	query: required
+	search: required
 ```
 
 ### API Service
