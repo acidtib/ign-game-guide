@@ -4,27 +4,21 @@ const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, Embed
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName('game-guide')
-    .setDescription('Search IGN Wiki Guides and Step-by-Step Walkthroughs')
+    .setName('ign-games')
+    .setDescription('Search IGN Games')
     .addStringOption(option =>
       option.setName('game')
         .setDescription('Name of the game to search')
-        .setRequired(true))
-    .addStringOption(option =>
-      option.setName('objective')
-        .setDescription('Stuck on a mission?')),
+        .setRequired(true)),
   async execute(interaction) {
-    const gameValue = interaction.options.getString('game');
-    const objectiveValue = interaction.options.getString('objective');
-
-    const searchTerm = [gameValue, objectiveValue].filter(Boolean).join(' ');
+    const searchTerm = interaction.options.getString('game');
 
     if (process.env.NODE_ENV == 'development') {
       console.log('///search-term');
       console.dir(searchTerm, { depth: null });
     }
 
-    wikiSearch(searchTerm)
+    gameSearch(searchTerm)
       .then(function(response) {
 
         if (process.env.NODE_ENV == 'development') {
@@ -37,7 +31,7 @@ module.exports = {
         const row = new ActionRowBuilder()
           .addComponents(
             new ButtonBuilder()
-              .setLabel('Open Guide')
+              .setLabel('Open Game')
               .setStyle(ButtonStyle.Link)
               .setURL(searchResult.url),
           );
@@ -48,7 +42,7 @@ module.exports = {
           .setURL(searchResult.url)
           .setDescription(searchResult.url);
 
-        return interaction.reply({ content: `Result for: \`${[gameValue, objectiveValue].filter(Boolean).join(', ')}\``, ephemeral: true, embeds: [embed], components: [row] });
+        return interaction.reply({ content: `Result for: \`${searchTerm}\``, ephemeral: true, embeds: [embed], components: [row] });
       }).catch(function(error) {
         if (process.env.NODE_ENV == 'development') {
           console.log('///error');
@@ -60,6 +54,6 @@ module.exports = {
   },
 };
 
-function wikiSearch(query) {
-  return axios.get(`${process.env.API_HOST}/api/v1/search/wiki`, { params: { q: query } });
+function gameSearch(query) {
+  return axios.get(`${process.env.API_HOST}/api/v1/search/game`, { params: { q: query } });
 }

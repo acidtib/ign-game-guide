@@ -11,7 +11,7 @@ https://discord.com/api/oauth2/authorize?client_id=1030253428573737041&permissio
 
 options: 
 	game: required
-	objective: optional
+	keyword: optional
 ```
 
 ### Search Games
