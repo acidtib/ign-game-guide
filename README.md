@@ -1,7 +1,7 @@
 ## IGN Game Guide - Discord Bot
 
 ### Add Bot To Your Server
-https://discord.com/api/oauth2/authorize?client_id=1030253428573737041&permissions=0&scope=bot%20applications.commands
+https://discord.com/api/oauth2/authorize?client_id=1030253428573737041&permissions=0&scope=bot%20applications.commands&permissions=2147798080
 
 ## Commands
 
