@@ -77,4 +77,4 @@ builder:
 healthcheck:
 #   path: /healthz
 #   port: 4000
-  skip: true
+  cmd: /usr/src/app/bin/check_health
